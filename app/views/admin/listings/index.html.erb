@@ -1,0 +1,5 @@
+<h1>Casas</h1>
+
+<% @listings.each do |listing| %>
+  <%= link_to listing.title, admin_listing_path(listing) %>
+<% end %>
