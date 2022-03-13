@@ -1,2 +1,3 @@
-<h1>Admin::Listings#show</h1>
-<p>Find me in app/views/admin/listings/show.html.erb</p>
+<h1><%= @listing.title %></h1>
+<%= link_to 'Edit', edit_admin_listing_path(@listing) %>
+<pre><%= JSON.pretty_generate(@listing.as_json) %></pre>

@@ -1,5 +1,8 @@
 <h1>Casas</h1>
+<%= button_to 'Adicionar casa', new_admin_listing_path, method: :get %>
 
 <% @listings.each do |listing| %>
   <%= link_to listing.title, admin_listing_path(listing) %>
+  <%= listing.status %>
+  <%= button_to 'Arquivar', admin_listing_path(listing), method: :delete %></br>
 <% end %>

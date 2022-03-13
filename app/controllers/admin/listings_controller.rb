@@ -7,22 +7,24 @@ class Admin::ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
 
     if @listing.save
-      redirect_to @listing
+      redirect_to admin_listing_path(@listing)
     else
-      flash.now[:errors] = @listing.errors.full_messages
-      render :new
+      flash[:errors] = @listing.errors.full_messages
+      redirect_to new_admin_listing_path
     end
   end
 
   def edit
     @listing = Listing.find(params[:id])
+
+    redirect_to edit_admin_listing_path
   end
 
   def update
     @listing = Listing.find(params[:id])
 
     if @listing.update(listing_params)
-      redirect_to @listing
+      redirect_to admin_listing_path(@listing)
     else
       flash.now[:errors] = @listing.errors.full_messages
       render :edit
