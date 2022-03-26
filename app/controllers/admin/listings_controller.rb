@@ -16,8 +16,6 @@ class Admin::ListingsController < ApplicationController
 
   def edit
     @listing = Listing.find(params[:id])
-
-    redirect_to edit_admin_listing_path
   end
 
   def update
