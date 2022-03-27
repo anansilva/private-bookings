@@ -1,0 +1,48 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+en:
+  devise:
+    confirmations:
+      confirmed: "O seu endereço de email foi confirmado com sucesso."
+      send_instructions: "Vai receber um email com instruções para confirmar o seu endereço de email."
+      send_paranoid_instructions: "Se o seu endereço de email existir na nossa base de dados, dentro de minutos receberá um email com instruções para confirmar o seu endereço de email."
+    failure:
+      already_authenticated: "Já está auntenticado"
+      inactive: "A sua conta ainda não está ativada"
+      invalid: "%{authentication_keys} ou palavre-passe inválidos."
+      not_found_in_database: "%{authentication_keys} ou palavra-passe inválidos."
+      timeout: "A sua sessão expirou. Para continuar faça novo login."
+      unauthenticated: "Para continuar, faça login ou novo registo."
+      unconfirmed: "Para continuar, tem de confirmar o seu endereço de email."
+    mailer:
+      confirmation_instructions:
+        subject: "Instruções para confirmar endereço de email."
+      reset_password_instructions:
+        subject: "Instruções para alterar password"
+      email_changed:
+        subject: "Email Alterado"
+      password_change:
+        subject: "Password Alterada"
+    omniauth_callbacks:
+      failure: "Não foi possível autenticar com %{kind} porque \"%{reason}\"."
+      success: "Autenticado com %{kind}."
+    passwords:
+      no_token: "Não pode aceder a esta página sem vir de um email de recuperação de palavra-passe. Se vem de um email de recuperação de palavra-passe, assegure-se que está a usar o URL dado."
+      send_instructions: "Vai receber email com instruções para recuperar a sua palavra-passe."
+      send_paranoid_instructions: "Se o seu endereço de email existir na nossa base de dados, vai reber um link de recuperação de palavra-passe no seu email."
+      updated: "A sua password foi alterada com sucesso. Pode fazer login."
+      updated_not_active: "A sua password foi alterada com sucesso."
+    registrations:
+      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      signed_up: "Registou-se com sucesso."
+      signed_up_but_unconfirmed: "Vai receber um email com link de confirmação de conta."
+    sessions:
+      signed_in: "Login feito com sucesso."
+      signed_out: "Logout feito com sucesso."
+      already_signed_out: "Logout feito com sucesso."
+  errors:
+    messages:
+      already_confirmed: "já foi confirmado, por favor tente fazer login."
+      confirmation_period_expired: "necessário confirmar dentro de %{period}, por favor peça um novo."
+      expired: "expirou, por favor peça um novo"
+      not_found: "não encontrado"
