@@ -1,6 +1,6 @@
 # Additional translations at https://github.com/heartcombo/devise/wiki/I18n
 
-en:
+pt:
   devise:
     confirmations:
       confirmed: "O seu endereço de email foi confirmado com sucesso."
