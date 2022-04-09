@@ -1,4 +1,4 @@
-<h1>Editar <%= @listing.title %></h1>
+<h1 class="mb-4 text-2xl font-bold">Editar <%= @listing.title %></h1>
 
 <%= render partial: "shared/errors" %>
 
@@ -9,7 +9,14 @@
   <label for="title">Nome</label>
   <input type="text" name="listing[title]" value="<%= @listing.title %>">
 
-  <label for="status">Número máximo de hóspedes</label>
+  <label for="status">Status</label>
+  <select name="listing[status]">
+    <% Listing.statuses.keys.each do |key| %>
+      <option value="<%= key %>" <%= @listing.status == key ? "selected" : "" %>><%= key %></option>
+    <% end %>
+  </select>
+
+  <label for="max_guests">Número máximo de hóspedes</label>
   <input type="number" name="listing[max_guests]" value="<%= @listing.max_guests %>" min="1" max="50" step="1">
 
   <input type="submit" value="Guardar">

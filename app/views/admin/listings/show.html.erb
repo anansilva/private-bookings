@@ -1,3 +1,4 @@
-<h1><%= @listing.title %></h1>
+<h1 class="mb-4 text-2xl font-bold"><%= @listing.title %></h1>
+
 <%= link_to 'Edit', edit_admin_listing_path(@listing) %>
 <pre><%= JSON.pretty_generate(@listing.as_json) %></pre>
