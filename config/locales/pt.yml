@@ -30,6 +30,20 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 pt:
-  published: "publicado"
-  draft: "rascunho"
-  archived: "indisponível"
+  listing:
+    published: "publicado"
+    draft: "rascunho"
+    archived: "indisponível"
+  room:
+    single: "solteiro"
+    double: "duplo"
+    triple: "triplo"
+    quad: "quádruplo"
+  bed:
+    single: "solteiro"
+    double: "casal"
+    queen: "queen"
+    king: "king"
+
+
+

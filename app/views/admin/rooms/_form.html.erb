@@ -1,0 +1,31 @@
+<div data-controller="room">
+
+  <template data-room-target="bedFields">
+    <label class="block text-sm font-medium text-gray-700">Bed size</label>
+    <select name="room[beds_attributes][][bed_size]" class="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-300 sm:text-sm">
+      <% Bed.bed_sizes.keys.each do |bed_size|%>
+        <option value="<%= bed_size %>"> <%= t("bed.#{bed_size}") %></option>
+      <% end %>
+    </select>
+  </template>
+
+  <form action="<%= admin_listing_rooms_path(listing) %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="type" class="block text-sm font-medium text-gray-700">Tipo de quarto</label>
+    <select id="type" name="room[room_type]" class="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-300 sm:text-sm">
+      <% Room.room_types.keys.each do |room_type|%>
+        <option value="<%= room_type %>"> <%= t("room.#{room_type}") %></option>
+      <% end %>
+    </select>
+
+    <fieldset data-room-target="beds">
+      <legend class="block text-sm font-medium text-gray-700">Camas</legend>
+    </fieldset>
+
+    <a href="#" data-action="room#addBed" class="inline-block text-sm font-bold text-indigo-600 align-baseline hover:text-indigo-500" data-room-target="bedFields">
+      Adicionar cama
+    </a>
+
+    <input type="submit" value="Criar quarto">
+  </form>
+</div>
