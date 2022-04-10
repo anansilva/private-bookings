@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :listings, only: [:index, :show]
 
   namespace :admin do
+    resources :photos, only: [:index, :create, :destroy]
     resources :listings do
       resources :rooms, only: [:index, :create, :destroy]
     end
