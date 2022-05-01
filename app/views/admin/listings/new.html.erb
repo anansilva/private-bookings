@@ -28,11 +28,11 @@
     <input type="number" id="max_guests" name="listing[max_guests]" value="<%= @listing.max_guests %>" min="1" max="100" step="1" class="block w-full border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
   </div>
 
-  <%# <label for="nightly_price">Preço por noite</label> %>
-  <%# <input type="number" id="nightly_price" name="listing[nightly_price]" value="<%= @listing.nightly_price %1>" min="1" step="1"> %>
+  <label for="nightly_price">Preço por noite</label>
+  <input type="number" id="nightly_price" name="listing[nightly_price]" value="<%= @listing.nightly_price %>" min="1" step="1">
 
-  <%# <label for="cleaning_fee">Taxa de limpeza</label> %>
-  <%# <input type="number" id="cleaning_fee" name="listing[cleaning_fee]" value="<%= @listing.cleaning_fee %1>" min="1" step="1"> %>
+  <label for="cleaning_fee">Taxa de limpeza</label>
+  <input type="number" id="cleaning_fee" name="listing[cleaning_fee]" value="<%= @listing.cleaning_fee %>" min="1" step="1">
 
   <input type="submit" value="Create listing" class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
 </form>

@@ -4,6 +4,25 @@ class User < ApplicationRecord
          :confirmable, :timeoutable, :trackable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
+  has_many :reservations, foreign_key: :guest_id
+
+  after_commit :create_stripe_customer, on: [:create, :update]
+
+  # TODO: move this to a job
+  def create_stripe_customer
+    return if self.stripe_customer_id.present?
+
+    customer = Stripe::Customer.create(
+      email: self.email,
+      name: self.full_name,
+      metadata: {
+        private_bookings_id: self.id,
+      }
+    )
+
+    self.update(stripe_customer_id: customer.id)
+  end
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.find_by(email: data['email'])
@@ -14,6 +33,10 @@ class User < ApplicationRecord
 
     user.skip_confirmation!
     user
+  end
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
   end
 
   private

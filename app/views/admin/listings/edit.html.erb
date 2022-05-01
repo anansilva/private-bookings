@@ -19,5 +19,11 @@
   <label for="max_guests">Número máximo de hóspedes</label>
   <input type="number" name="listing[max_guests]" value="<%= @listing.max_guests %>" min="1" max="50" step="1">
 
+  <label for="nightly_price">Preço por noite</label>
+  <input type="number" id="nightly_price" name="listing[nightly_price]" value="<%= @listing.nightly_price %>" min="1" step="1">
+
+  <label for="cleaning_fee">Taxa de limpeza</label>
+  <input type="number" id="cleaning_fee" name="listing[cleaning_fee]" value="<%= @listing.cleaning_fee %>" min="1" step="1">
+
   <input type="submit" value="Guardar">
 </form>

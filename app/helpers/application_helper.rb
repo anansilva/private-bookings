@@ -6,7 +6,7 @@ module ApplicationHelper
         href: listings_path
       },
       {
-        body: 'Reservas',
+        body: 'As minhas reservas',
         href: ''
       },
       {

@@ -1,4 +1,14 @@
-<h1><%= @listing.title %></h1>
+<h1 class="mb-4 text-2xl font-bold"><%= @listing.title %></h1>
+
+<p>
+  Diária<%= number_to_currency(@listing.nightly_price / 100, precision: 0) %>
+</p>
+
+<form action="/reservations" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="reservation[listing_id]" value="<%= @listing.id %>">
+  <input type="submit" value="Reservar" data-turbo="false">
+</form>
 
 <p><%= @listing.max_guests %></p>
 

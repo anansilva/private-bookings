@@ -47,6 +47,12 @@ class Admin::ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:title, :max_guests, :status, :nightly_price)
+    params.require(:listing).permit(
+      :title,
+      :max_guests,
+      :status,
+      :nightly_price,
+      :cleaning_fee
+    )
   end
 end
