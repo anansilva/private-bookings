@@ -1,9 +1,4 @@
-<h1 class="mb-4 text-2xl font-bold">Adicionar Casa</h1>
-
-<%= render partial: "shared/errors" %>
-
-<form action="/admin/listings" method="post" class="space-y-8 divide-y divide-gray-200">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<%= render(HeadingComponent.new.with_content("Adicionar Casa")) %>
 
   <div class="sm:col-span-6">
     <label for="title" class="block text-sm font-medium text-gray-700">

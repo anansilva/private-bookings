@@ -1,0 +1,17 @@
+<a href="" class="block">
+  <img
+    alt="Casa"
+    src="https://source.unsplash.com/e-3ZYgHsR8Y"
+    class="object-cover w-full"
+  />
+
+  <h5 class="mt-4 text-sm text-black/90">
+    <%= @listing.title %>
+  </h5>
+
+  <div class="flex items-center justify-between mt-4 font-bold">
+    <p class="text-lg">
+      &#x20AC;<%= @listing.nightly_price %>/noite &plus; &#x20AC;<%= @listing.guest_price %>/pessoa
+    </p>
+  </div>
+</a>

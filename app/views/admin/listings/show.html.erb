@@ -1,4 +1,4 @@
-<h1 class="mb-4 text-2xl font-bold"><%= @listing.title %></h1>
+<%= render(HeadingComponent.new.with_content("#{@listing.title}")) %>
 
 <%= link_to 'Edit', edit_admin_listing_path(@listing) %>
 <pre><%= JSON.pretty_generate(@listing.as_json) %></pre>

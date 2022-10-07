@@ -1,5 +1,4 @@
-<h1 class="mb-4 text-2xl font-bold">Quartos</h1>
-
+<%= render(HeadingComponent.new.with_content("Quartos")) %>
 
 <%= link_to "Regressar a #{@listing.title}", admin_listing_path(@listing) %>
 
@@ -14,9 +13,7 @@
               <%= room.beds.count %>
             </span>
           </div>
-          <% room.beds.each do |bed| %>
-            <p class="mt-1 text-sm text-gray-500 truncate"><%= bed.bed_size %></p>
-          <% end %>
+          <%= render(BedComponent.with_collection(room.beds)) %>
           <%= button_to "Delete", admin_listing_room_path(@listing, room), method: :delete %>
         </div>
       </div>

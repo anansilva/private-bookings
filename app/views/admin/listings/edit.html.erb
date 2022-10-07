@@ -1,4 +1,4 @@
-<h1 class="mb-4 text-2xl font-bold">Editar <%= @listing.title %></h1>
+<%= render(HeadingComponent.new.with_content("Editar #{@listing.title}")) %>
 
 <%= render partial: "shared/errors" %>
 

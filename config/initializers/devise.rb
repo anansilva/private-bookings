@@ -132,8 +132,6 @@ Devise.setup do |config|
   # The number of stretches used for generating the hashed password are stored
   # with the hashed password. This allows you to change the stretches without
   # invalidating existing passwords.
-  #
-  # Limiting the stretches to just one in testing will increase the performance of
   # your test suite dramatically. However, it is STRONGLY RECOMMENDED to not use
   # a value less than 10 in other environments. Note that, for bcrypt (the default
   # algorithm), the cost increases exponentially with the number of stretches (e.g.
@@ -287,8 +285,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   config.omniauth :google_oauth2,
-    Rails.application.credentials.google[:client_id],
-    Rails.application.credentials.google[:client_secret]
+    Rails.application.credentials.dig(:google, :client_id),
+    Rails.application.credentials.dig(:google, :client_secret)
 
   OmniAuth.config.allowed_request_methods = %i[get]
   # ==> Warden configuration

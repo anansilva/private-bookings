@@ -1,1 +1,5 @@
-Stripe.api_key = Rails.application.credentials.stripe[:secret_key]
+if Rails.env.production?
+  Stripe.api_key = Rails.application.credentials.dig(:stripe, :production, :secret_key)
+else
+  Stripe.api_key = Rails.application.credentials.dig(:stripe, :test, :secret_key)
+end

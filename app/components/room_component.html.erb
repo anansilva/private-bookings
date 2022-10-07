@@ -1,0 +1,16 @@
+<% @rooms.each do |room| %>
+  <li class="bg-white rounded-lg shadow col-span-1 divide-y divide-gray-200">
+    <div class="flex items-center justify-between w-full p-6 space-x-6">
+      <div class="flex-1 truncate">
+        <div class="flex items-center space-x-3">
+          <h3 class="text-sm font-medium text-gray-900 truncate"><%= t(room.room_type) %></h3>
+          <span class="flex-shrink-0 inline-block px-2 py-0.5 text-green-800 text-xs font-medium bg-green-100 rounded-full">
+            <%= room.beds.count %>
+          </span>
+        </div>
+        <%= render(BedComponent.with_collection(room.beds)) %>
+        <%= button_to "Delete", admin_listing_room_path(@listing, room), method: :delete %>
+      </div>
+    </div>
+  </li>
+<% end %>
