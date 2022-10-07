@@ -1,13 +1,12 @@
-FROM ruby
-RUN curl https://deb.nodesource.com/setup_16.x | bash
-RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update -qq && apt-get install -y nodejs yarn postgresql-client vim
+FROM ruby:3.1.0
+RUN apt-get update -qq && apt-get install -y postgresql-client vim
 WORKDIR /app
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
-RUN bundle install
-RUN yarn install
+ENV BUNDLER_VERSION 2.3.3
+RUN gem update --system \
+    && gem install bundler -v $BUNDLER_VERSION \
+    && bundle install -j 4
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh

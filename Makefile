@@ -9,10 +9,16 @@ up:
 	docker-compose up
 down:
 	docker-compose down
+up.web:
+	docker-compose up web
+down.web:
+	docker-compose down web
+up.jobs:
+	docker-compose up jobs
+down.jobs:
+	docker-compose down jobs
 build:
 	docker-compose build --no-cache web
-yarn:
-	docker-compose run --rm web bash -c "yarn --network-timeout 100000"
 bundle:
 	docker-compose run --rm web bash -c "bundle"
 bundle.update:
@@ -21,12 +27,12 @@ bash:
 	docker-compose run --rm web bash
 binding.pry:
 	docker attach `docker-compose ps -q web`
+credentials:
+	docker-compose run --rm -e EDITOR=vim web bin/rails credentials:edit
 
 # TDD
 tdd:
-	docker-compose -f docker-compose.tdd.yml run --rm tdd && \
-		docker-compose -f docker-compose.tdd.yml down
-
+	docker-compose -f docker-compose.tdd.yml run tdd bash
 %:
 	@:
 
